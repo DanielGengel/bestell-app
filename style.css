@@ -98,6 +98,67 @@ body {
     min-height: 100dvh;
 }
 
+.content {
+    margin-top: 650px;
+}
+
+
+
+.mainFooter {
+    background-color: #e76c1f;
+    height: 160px;
+
+    .mainFooterContent {
+        padding: 25px;
+        display: flex;
+        /* flex-direction: column; */
+        text-align: center;
+        justify-content: center;
+        gap: 50px;
+
+        span {
+            color: white;
+        }
+    }
+
+    .footerMobileNavigation {
+        background-color: #363534;
+        height: 80px;
+        min-width: 300px;
+        width: 100%;
+        display: flex; /* show only on mobile */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+
+        .footerMobileNavBar {
+            max-width: 320px;
+            width: 100%;
+
+            ul {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-around;
+                list-style-type: none;
+            }
+
+            img {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 375px) {
+    .content {
+        margin-top: 720px;
+    }
+}
+
 @media screen and (min-width: 1024px) {
     .mainHeader {
         background-color: #e76c1f;
@@ -131,8 +192,44 @@ body {
         }
 
         .mainHeaderHeadline {
-            margin-top: 120px;
-            margin-bottom: 20px;
+            flex-direction: row;
+            margin-top: 80px;
+        }
+    }
+
+    .content {
+        margin-top: 700px;
+    }
+
+    .articleCategoryHeader {
+        height: 60px;
+        .articleCategoryHeaderContent {
+            width: 100%;
+            max-width: 1440px;
+            height: 30px;
+            flex-direction: row;
+            justify-content: flex-start;
+            margin-left: 15%;
+
+            gap: 20px;
+
+            img {
+                width: 90px;
+                height: 90px;
+            }
+        }
+    }
+
+    .articleCard {
+        width: 60%;
+        align-items: flex-start;
+        justify-content: flex-start;
+        margin-left: 8%;
+    }
+    .mainFooter {
+        height: 80px;
+        .footerMobileNavigation {
+            display: none;
         }
     }
 }
