@@ -320,11 +320,11 @@ body {
 @media screen and (min-width: 1024px) {
     .mainHeader {
         background-color: #e76c1f;
-        height: 128px;
+        height: 80px;
 
         .mainHeaderMenu {
             position: relative;
-            height: 128px;
+            height: 80px;
 
             background-color: #e76c1f;
             max-width: 1440px;
@@ -388,6 +388,22 @@ body {
     }
     .mainFooter {
         height: 80px;
+        .mainFooterContent {
+            flex-direction: row;
+            gap: 40px;
+
+            .copyright {
+                order: 1;
+            }
+
+            .imprint {
+                order: 2;
+            }
+
+            .cookies {
+                order: 3;
+            }
+        }
         .footerMobileNavigation {
             display: none;
         }
