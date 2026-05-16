@@ -1,10 +1,10 @@
-function getCategoryTemplate(index) {
+function getCategoryTemplate(categoryIndex) {
     return `
         <div class="articleCategory">
             <header class="articleCategoryHeader">
                 <div class="articleCategoryHeaderContent">
-                    <img src="${foodMenu[index].categoryIcon}" alt="Category Icon for ${foodMenu[index].category}" />
-                    <h3>${foodMenu[index].category}</h3>
+                    <img src="${foodMenu[categoryIndex].categoryIcon}" alt="Category Icon for ${foodMenu[categoryIndex].category}" />
+                    <h3>${foodMenu[categoryIndex].category}</h3>
                 </div>
             </header>
         </div>
@@ -12,18 +12,18 @@ function getCategoryTemplate(index) {
 }
 
 
-function getArticleTemplate(index, index2) {
+function getArticleTemplate(categoryIndex, articleIndex) {
     return `
         <div class="articles">
             <article class="articleCard">
-                <img src="./assets/img/${foodMenu[index].items[index2].picture}" alt="Picture of ${foodMenu[index].items[index2].name}" />
+                <img src="./assets/img/${foodMenu[categoryIndex].items[articleIndex].picture}" alt="Picture of ${foodMenu[categoryIndex].items[articleIndex].name}" />
                 <div class="articleDescription">
-                    <h4>${foodMenu[index].items[index2].name}</h4>
-                    <p>${foodMenu[index].items[index2].description}</p>
+                    <h4>${foodMenu[categoryIndex].items[articleIndex].name}</h4>
+                    <p>${foodMenu[categoryIndex].items[articleIndex].description}</p>
                 </div>
                 <div class="articlePriceAndButton">
-                    <h4>${foodMenu[index].items[index2].price.toFixed(2)}€</h4>
-                    <button><p>Add to basket</p></button>
+                    <h4>${foodMenu[categoryIndex].items[articleIndex].price.toFixed(2)}€</h4>
+                    <button class="btnAddToCart" data-index="${foodMenu[categoryIndex].items[articleIndex].articleID}"><p>Add to cart</p></button>
                 </div>
             </article>
         </div>
