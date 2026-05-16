@@ -6,10 +6,11 @@
         <link rel="stylesheet" href="./css/fonts.css" />
         <link rel="stylesheet" href="style.css" />
         <script src="./scripts/menuDB.js"></script>
+        <script src="./scripts/templates.js"></script>
         <script src="script.js" defer></script>
         <title>Bestell-App</title>
     </head>
-    <body>
+    <body onload="renderFoodMenu()">
         <header class="mainHeader">
             <div class="mainHeaderMenu">
                 <img class="appIcon" src="./assets/icons/bestell-app-icon.png" alt="Bestell-App-Icon" />
@@ -29,8 +30,8 @@
         </header>
         <main>
             <section class="content">
-                <section id="menu-section">
-                    <div class="articleCategory">
+                <section id="menuSectionID">
+                    <!-- <div class="articleCategory">
                         <header class="articleCategoryHeader">
                             <div class="articleCategoryHeaderContent">
                                 <img src="./assets/icons/burger-icon.png" alt="" />
@@ -74,7 +75,7 @@
                                 <button><p>Add to basket</p></button>
                             </div>
                         </article>
-                    </div>
+                    </div> -->
                 </section>
             </section>
         </main>
