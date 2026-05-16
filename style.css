@@ -105,7 +105,7 @@ body {
 .articleCategoryHeader {
     height: 80px;
 
-    margin-bottom: 60px;
+    /* margin-bottom: 60px; */
     width: 100%;
     background-color: #f57c1f;
     display: flex;
@@ -144,64 +144,84 @@ body {
     max-width: 1440px;
     margin-right: auto;
     margin-left: auto;
+    padding: 20px;
 
     .articleCard {
         background-color: #fdeadc;
-        margin-top: 20px;
+        margin-top: 10px;
         /* margin-left: 50px; */
         /* width: 50%; */
-        height: 140px;
+        height: 100%;
         padding-left: 10px;
         padding-right: 10px;
         border-radius: 20px;
         /* background-color: #f57c1f; */
         display: flex;
-        
+        flex-direction: column;
+
         align-items: center;
         justify-content: space-between;
 
         img {
-            width: 200px;
-            height: 120px;
-            margin-right: 20px;
+            width: 100%;
+            height: 90px;
+            margin-top: 10px;
+            /* margin-right: 20px; */
             border-radius: 20px;
             object-fit: cover;
         }
 
         .articleDescription {
-            height: 120px;
+            /* height: 120px; */
             display: flex;
             flex-direction: column;
-            align-items: start;
-            justify-content: flex-start;
+            width: 100%;
+            /* align-items: start;
+            justify-content: flex-start; */
+            margin-top: 10px;
 
-            p {
+            /* p {
                 max-width: 80%;
-            }
+            } */
         }
 
         .articlePriceAndButton {
-            width: 20%;
-            height: 120px;
+            width: 100%;
+            /* width: 20%; */
+            /* height: 120px; */
+            margin-top: 10px;
             display: flex;
-            flex-direction: column;
-            align-items: flex-end;
+            flex-direction: row;
+            align-items: center;
             justify-content: space-between;
+            margin-bottom: 10px;
         }
     }
 }
 
 .mainFooter {
     background-color: #e76c1f;
-    height: 160px;
+    height: 200px;
 
     .mainFooterContent {
-        padding: 25px;
+        padding-top: 20px;
         display: flex;
-        /* flex-direction: column; */
+        flex-direction: column;
         text-align: center;
         justify-content: center;
-        gap: 50px;
+        gap: 10px;
+
+        .imprint {
+            order: 1;
+        }
+
+        .cookies {
+            order: 2;
+        }
+
+        .copyright {
+            order: 3;
+        }
 
         span {
             color: white;
@@ -240,9 +260,60 @@ body {
     }
 }
 
+/* region mediascreen */
+
 @media screen and (min-width: 375px) {
     .content {
         margin-top: 720px;
+    }
+
+    .articles {
+        .articleCard {
+            img {
+                height: 150px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .articles {
+        .articleCard {
+            img {
+                height: 200px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .articles {
+        .articleCard {
+            width: 100%;
+            height: 140px;
+            flex-direction: row;
+            gap: 20px;
+            align-items: flex-start;
+            padding-bottom: 10px;
+
+            img {
+                width: 25%;
+                height: 120px;
+            }
+            .articleDescription {
+                width: 50%;
+                justify-content: center;
+            }
+
+            .articlePriceAndButton {
+                width: 25%;
+                height: 100%;
+                flex-direction: column;
+                align-items: flex-end;
+                justify-content: space-between;
+                padding-bottom: 10px;
+            }
+        }
     }
 }
 

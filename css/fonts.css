@@ -83,17 +83,33 @@ h1 span {
 
 
 h2 {
-    font-size: clamp(24px, 4vw, 54px);
+    font-size: clamp(20px, 3vw, 48px);
     font-family: "Palanquin";
     font-weight: 700;
     line-height: 1.2;
-    color: white;
+    color: #363534;
+}
+
+h3 {
+    font-size: clamp(26px, 3vw, 54px);
+    font-family: "Palanquin";
+    font-weight: 700;
+    line-height: 1.2;
+    color: #ffffff;
+}
+
+h4 {
+    font-size: clamp(20px, 2vw, 24px);
+    font-family: "Palanquin";
+    font-weight: 600;
+    line-height: 1.2;
+    color: #54370d;
 }
 
 p {
-    font-size: clamp(20px, 2vw, 24px);
+    font-size: clamp(16px, 2vw, 20px);
     font-family: "Palanquin";
-    font-weight: 700;
+    font-weight: 400;
     /* font-size: 16px; */
     line-height: 1.2;
     color: #54370d;
@@ -115,21 +131,9 @@ p {
 
 
 
-h3 {
-    font-size: clamp(20px, 3vw, 48px);
-    font-family: "Palanquin";
-    font-weight: 600;
-    line-height: 1.2;
-    color: white;
-}
 
-h4 {
-    font-size: clamp(18px, 3vw, 32px);
-    font-family: "Palanquin";
-    font-weight: 500;
-    line-height: 1.2;
-    color: #54370d;
-}
+
+
 
 
 
