@@ -102,7 +102,94 @@ body {
     margin-top: 650px;
 }
 
+.articleCategoryHeader {
+    height: 80px;
 
+    margin-bottom: 60px;
+    width: 100%;
+    background-color: #f57c1f;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    .articleCategoryHeaderContent {
+        position: absolute;
+        bottom: 20px;
+
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        img {
+            width: 60px;
+            height: 60px;
+        }
+    }
+
+    /* .articleCategoryHeaderContent {
+        max-width: 1440px;
+        margin-right: auto;
+        margin-left: auto;
+
+        img {
+            
+        }
+    } */
+}
+
+.articles {
+    width: 100%;
+    max-width: 1440px;
+    margin-right: auto;
+    margin-left: auto;
+
+    .articleCard {
+        background-color: #fdeadc;
+        margin-top: 20px;
+        /* margin-left: 50px; */
+        /* width: 50%; */
+        height: 140px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 20px;
+        /* background-color: #f57c1f; */
+        display: flex;
+        
+        align-items: center;
+        justify-content: space-between;
+
+        img {
+            width: 200px;
+            height: 120px;
+            margin-right: 20px;
+            border-radius: 20px;
+            object-fit: cover;
+        }
+
+        .articleDescription {
+            height: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: flex-start;
+
+            p {
+                max-width: 80%;
+            }
+        }
+
+        .articlePriceAndButton {
+            width: 20%;
+            height: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+    }
+}
 
 .mainFooter {
     background-color: #e76c1f;
@@ -209,7 +296,8 @@ body {
             height: 30px;
             flex-direction: row;
             justify-content: flex-start;
-            margin-left: 15%;
+            /* margin-left: 15%; */
+            padding-left: 155px;
 
             gap: 20px;
 
@@ -219,12 +307,13 @@ body {
             }
         }
     }
-
-    .articleCard {
-        width: 60%;
-        align-items: flex-start;
-        justify-content: flex-start;
-        margin-left: 8%;
+    .articles {
+        .articleCard {
+            width: 60%;
+            align-items: flex-start;
+            justify-content: flex-start;
+            margin-left: 8%;
+        }
     }
     .mainFooter {
         height: 80px;
