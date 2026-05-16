@@ -21,7 +21,20 @@ function renderFoodMenu() {
     }
 
     addEventsToButtons(".btnAddToCart", addToCart);
+
+    shoppingCartID.showModal()
 }
+
+
+
+const dialog = document.querySelector("dialog");
+
+window.addEventListener("scroll", () => {
+    dialog.classList.toggle("hide", window.scrollY < 620);
+    dialog.classList.toggle("show", window.scrollY > 651);
+});
+
+
 
 function addEventsToButtons(buttonClass, functionToRun) {
     const buttons = document.querySelectorAll(buttonClass);
