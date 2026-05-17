@@ -22,17 +22,17 @@ function renderFoodMenu() {
 
     addEventsToButtons(".btnAddToCart", addToCart);
 
-    shoppingCartID.showModal()
+    // shoppingCartID.showModal()
 }
 
 
 
-const dialog = document.querySelector("dialog");
+// const dialog = document.querySelector("dialog");
 
-window.addEventListener("scroll", () => {
-    dialog.classList.toggle("hide", window.scrollY < 620);
-    dialog.classList.toggle("show", window.scrollY > 651);
-});
+// window.addEventListener("scroll", () => {
+//     dialog.classList.toggle("hide", window.scrollY < 620);
+//     dialog.classList.toggle("show", window.scrollY > 651);
+// });
 
 
 
@@ -61,3 +61,30 @@ function addToCart(productID) {
 
     console.log(basketArray);
 }
+
+
+
+
+const content = document.getElementById("cartContent");
+const desktop = document.getElementById("shoppingCartID");
+const mobile = document.getElementById("mobileCart");
+
+function moveCart(){
+
+content.innerHTML = getShoppingCartTemplate();
+
+    console.log(content);
+    
+    if(window.innerWidth <= 1024){
+        mobile.append(content);
+        mobile.showModal();
+    }else{
+        desktop.append(content);
+        mobile.close();
+    }
+}
+
+moveCart();
+
+window.addEventListener("resize", moveCart);
+

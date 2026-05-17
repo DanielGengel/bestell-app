@@ -30,55 +30,140 @@
         </header>
         <main>
             <section class="content">
-                <section id="menuSectionID">
-                    <!-- <div class="articleCategory">
-                        <header class="articleCategoryHeader">
-                            <div class="articleCategoryHeaderContent">
-                                <img src="./assets/icons/burger-icon.png" alt="" />
-                                <h3>Burger and Sandwiches</h3>
-                            </div>
-                        </header>
-                    </div>
-                    <div class="articles">
-                        <article class="articleCard">
-                            <img src="./assets/img/veggie-burger.jpg" alt="Veggie Burger" />
-                            <div class="articleDescription">
-                                <h4>Veggie mushroom black burger</h4>
-                                <p>Mixed green salad, Tomatoes, Edamame, Mushrooms</p>
-                            </div>
-                            <div class="articlePriceAndButton">
-                                <h4>16,90€</h4>
-                                <button><p>Add to basket</p></button>
-                            </div>
-                        </article>
-
-                        <article class="articleCard">
-                            <img src="./assets/img/veggie-burger.jpg" alt="Veggie Burger" />
-                            <div class="articleDescription">
-                                <h4>Veggie mushroom black burger</h4>
-                                <p>Mixed green salad, Tomatoes, Edamame, Mushrooms</p>
-                            </div>
-                            <div class="articlePriceAndButton">
-                                <h4>16,90€</h4>
-                                <button><p>Add to basket</p></button>
-                            </div>
-                        </article>
-
-                        <article class="articleCard">
-                            <img src="./assets/img/veggie-burger.jpg" alt="Veggie Burger" />
-                            <div class="articleDescription">
-                                <h4>Veggie mushroom black burger</h4>
-                                <p>Mixed green salad, Tomatoes, Edamame, Mushrooms</p>
-                            </div>
-                            <div class="articlePriceAndButton">
-                                <h4>16,90€</h4>
-                                <button><p>Add to basket</p></button>
-                            </div>
-                        </article>
-                    </div> -->
-                </section>
+                <section id="menuSectionID"></section>
             </section>
-            <dialog class="cart" id="shoppingCartID">
+
+            <!-- <aside id="desktop-cart"></aside> -->
+
+            <!-- <dialog id="mobileCart"></dialog> -->
+
+            <dialog id="mobileCart" class="shoppingCartMobileDialog"></dialog>
+
+            <div class="shoppingCartOverlay">
+                <aside class="shoppingCart" id="shoppingCartID"></aside>
+            </div>
+
+            <section id="cartContent"></section>
+
+            <!-- <section id="cartContent">
+                <section class="cart">
+                    <button class="close">×</button>
+                    <h2>Your Basket</h2>
+
+                    <section class="items">
+                        <article class="item">
+                            <div>
+                                <strong>1 × Veggie burgerxxx</strong>
+                                <p>🗑 1+</p>
+                            </div>
+                            <strong>16,90€</strong>
+                        </article>
+
+                        <article class="item">
+                            <div>
+                                <strong>1 × Pizzzzzzza</strong>
+                                <p>🗑 1+</p>
+                            </div>
+                            <strong>11,90€</strong>
+                        </article>
+
+                        <article class="item">
+                            <div>
+                                <strong>1 × Salad</strong>
+                                <p>🗑 1+</p>
+                            </div>
+                            <strong>7,90€</strong>
+                        </article>
+                    </section>
+
+                    <section class="summary">
+                        <p><span>Subtotal</span><span>360,70€</span></p>
+                        <p><span>Delivery</span><span>4,99€</span></p>
+                        <hr />
+                        <p class="total"><span>Total</span><span>41,69€</span></p>
+                    </section>
+
+                    <button class="buy">Buy now (41,69€)</button>
+                </section>
+            </section> -->
+
+            <!--                     
+               
+                <button class="btnCloseCart">×</button>
+
+                <h2>Your Basket</h2>
+
+                <section class="cartItems">
+                    <article class="item">
+                        <div>
+                            <strong>1 × Veggie mushroom black burger</strong>
+                            <p>🗑 1+</p>
+                        </div>
+
+                        <strong>16,90€</strong>
+                    </article>
+
+                    <article class="item">
+                        <div>
+                            <strong>1 × Pizza Margherita</strong>
+                            <p>🗑 1+</p>
+                        </div>
+
+                        <strong>11,90€</strong>
+                    </article>
+
+                    <article class="item">
+                        <div>
+                            <strong>1 × Mini green Salad</strong>
+                            <p>🗑 1+</p>
+                        </div>
+
+                        <strong>7,90€</strong>
+                    </article>
+
+                    <article class="item">
+                        <div>
+                            <strong>1 × Mini green Salad</strong>
+                            <p>🗑 1+</p>
+                        </div>
+
+                        <strong>7,90€</strong>
+                    </article>
+
+                    <article class="item">
+                        <div>
+                            <strong>1 × Mini green Salad</strong>
+                            <p>🗑 1+</p>
+                        </div>
+
+                        <strong>7,90€</strong>
+                    </article>
+                </section>
+
+                <section class="summary">
+                    <p>
+                        <span>Subtotal</span>
+                        <span>36,70€</span>
+                    </p>
+
+                    <p>
+                        <span>Delivery fee</span>
+                        <span>4,99€</span>
+                    </p>
+
+                    <hr />
+
+                    <p class="total">
+                        <strong>Total</strong>
+                        <strong>41,69€</strong>
+                    </p>
+                </section>
+
+                <button class="btnBuy">Buy now (41,69€)</button>
+            </dialog>
+
+            <div class="shoppingCartOverlay">
+                <aside class="shoppingCart" id="shoppingCartID">
                     <button class="btnCloseCart">×</button>
 
                     <h2>Your Basket</h2>
@@ -100,6 +185,24 @@
                             </div>
 
                             <strong>11,90€</strong>
+                        </article>
+
+                        <article class="item">
+                            <div>
+                                <strong>1 × Mini green Salad</strong>
+                                <p>🗑 1+</p>
+                            </div>
+
+                            <strong>7,90€</strong>
+                        </article>
+
+                        <article class="item">
+                            <div>
+                                <strong>1 × Mini green Salad</strong>
+                                <p>🗑 1+</p>
+                            </div>
+
+                            <strong>7,90€</strong>
                         </article>
 
                         <article class="item">
@@ -132,7 +235,8 @@
                     </section>
 
                     <button class="btnBuy">Buy now (41,69€)</button>
-                </dialog>
+                </aside> -->
+            <!-- </div> -->
         </main>
         <footer class="mainFooter">
             <div class="mainFooterContent">

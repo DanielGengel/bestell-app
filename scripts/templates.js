@@ -29,3 +29,50 @@ function getArticleTemplate(categoryIndex, articleIndex) {
         </div>
     `;
 }
+
+// function getShoppingCartTemplate(categoryIndex, articleIndex) {
+function getShoppingCartTemplate() {
+    return `
+        <section id="cartContent">
+                <section class="cart">
+                    <button class="close">×</button>
+                    <h2>Your Basket</h2>
+
+                    <section class="items">
+                        <article class="item">
+                            <div>
+                                <strong>1 × Veggie burgerxxx</strong>
+                                <p>🗑 1+</p>
+                            </div>
+                            <strong>160,90€</strong>
+                        </article>
+
+                        <article class="item">
+                            <div>
+                                <strong>1 × Pizzzzzzza</strong>
+                                <p>🗑 2+</p>
+                            </div>
+                            <strong>111,90€</strong>
+                        </article>
+
+                        <article class="item">
+                            <div>
+                                <strong>1 × Salad</strong>
+                                <p>🗑 3+</p>
+                            </div>
+                            <strong>70,90€</strong>
+                        </article>
+                    </section>
+
+                    <section class="summary">
+                        <p><span>Subtotal</span><span>360,70€</span></p>
+                        <p><span>Delivery</span><span>4,99€</span></p>
+                        <hr />
+                        <p class="total"><span>Total</span><span>41,69€</span></p>
+                    </section>
+
+                    <button class="buy">Buy now (41,69€)</button>
+                </section>
+            </section>
+    `;
+}
