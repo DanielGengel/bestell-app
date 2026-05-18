@@ -66,8 +66,8 @@ function addToCart(productID) {
 
 
 const content = document.getElementById("cartContent");
-const desktop = document.getElementById("shoppingCartID");
-const mobile = document.getElementById("mobileCart");
+const desktop = document.getElementById("desktopCartID");
+const mobile = document.getElementById("mobileCartDialogID");
 
 function moveCart(){
 

@@ -33,7 +33,7 @@ function getArticleTemplate(categoryIndex, articleIndex) {
 // function getShoppingCartTemplate(categoryIndex, articleIndex) {
 function getShoppingCartTemplate() {
     return `
-        <section id="cartContent">
+        
                 <section class="cart">
                     <button class="close">×</button>
                     <h2>Your Basket</h2>
@@ -41,7 +41,31 @@ function getShoppingCartTemplate() {
                     <section class="items">
                         <article class="item">
                             <div>
-                                <strong>1 × Veggie burgerxxx</strong>
+                                <strong>1 × Veggie burger burger burger burger burger burger </strong>
+                                <p>🗑 1+</p>
+                            </div>
+                            <strong>160,90€</strong>
+                        </article>
+
+                        <article class="item">
+                            <div>
+                                <strong>1 × Pizzzzzzza</strong>
+                                <p>🗑 2+</p>
+                            </div>
+                            <strong>111,90€</strong>
+                        </article>
+
+                        <article class="item">
+                            <div>
+                                <strong>1 × Salad</strong>
+                                <p>🗑 3+</p>
+                            </div>
+                            <strong>70,90€</strong>
+                        </article>
+
+                        <article class="item">
+                            <div>
+                                <strong>1 × Veggie Veggie Veggie Veggie Veggieburgerxxx</strong>
                                 <p>🗑 1+</p>
                             </div>
                             <strong>160,90€</strong>
@@ -73,6 +97,5 @@ function getShoppingCartTemplate() {
 
                     <button class="buy">Buy now (41,69€)</button>
                 </section>
-            </section>
     `;
 }
