@@ -30,72 +30,53 @@ function getArticleTemplate(categoryIndex, articleIndex) {
     `;
 }
 
-// function getShoppingCartTemplate(categoryIndex, articleIndex) {
-function getShoppingCartTemplate() {
-    return `
-        
-                <section class="cart">
-                    <button class="close">×</button>
-                    <h2>Your Basket</h2>
-
-                    <section class="items">
-                        <article class="item">
-                            <div>
-                                <strong>1 × Veggie burger burger burger burger burger burger </strong>
-                                <p>🗑 1+</p>
-                            </div>
-                            <strong>160,90€</strong>
-                        </article>
-
-                        <article class="item">
-                            <div>
-                                <strong>1 × Pizzzzzzza</strong>
-                                <p>🗑 2+</p>
-                            </div>
-                            <strong>111,90€</strong>
-                        </article>
-
-                        <article class="item">
-                            <div>
-                                <strong>1 × Salad</strong>
-                                <p>🗑 3+</p>
-                            </div>
-                            <strong>70,90€</strong>
-                        </article>
-
-                        <article class="item">
-                            <div>
-                                <strong>1 × Veggie Veggie Veggie Veggie Veggieburgerxxx</strong>
-                                <p>🗑 1+</p>
-                            </div>
-                            <strong>160,90€</strong>
-                        </article>
-
-                        <article class="item">
-                            <div>
-                                <strong>1 × Pizzzzzzza</strong>
-                                <p>🗑 2+</p>
-                            </div>
-                            <strong>111,90€</strong>
-                        </article>
-
-                        <article class="item">
-                            <div>
-                                <strong>1 × Salad</strong>
-                                <p>🗑 3+</p>
-                            </div>
-                            <strong>70,90€</strong>
-                        </article>
-                    </section>
-
-                    <section class="summary">
-                        <p><span>Subtotal</span><span>360,70€</span></p>
-                        <p><span>Delivery</span><span>4,99€</span></p>
-                        <hr />
-                        <p class="total"><span>Total</span><span>41,69€</span></p>
-                    </section>
-
-                    <button class="buy">Buy now (41,69€)</button>
-                </section>
+function getShoppingCartTemplateHeader() {
+return `
+        <section class="cart" id="cartID">
+            <button class="close">×</button>
+            <h2>Your Basket</h2>
+            <section class="items" id="itemsID">
     `;
 }
+
+// function getShoppingCartTemplate(categoryIndex, articleIndex) {
+function getShoppingCartTemplateMain(index) {
+    return `   
+            <article class="item">
+                <div>
+                    <strong>${customerBasket[index].amount} ${customerBasket[index].name} </strong>
+                    <p>- ${customerBasket[index].amount} +</p>
+                </div>
+                <strong>${customerBasket[index].totalPrice.toFixed(2)}€</strong>
+            </article>   
+    `;
+}
+
+function getShoppingCartTemplateFooter() {
+    return `
+            </section>
+            <section class="summary">
+                <p><span>Subtotal</span><span>${subTotal}</span></p>
+                <p><span>Delivery</span><span>4,99€</span></p>
+                <hr />
+                <p class="total"><span>Total</span><span>${subTotal}+4,99</span></p>
+            </section>
+            <button class="btnBuy">Buy now (${subTotal})</button>
+        </section>
+    `;
+}
+
+
+
+function getShoppingCartDefaultTemplate() {
+    return `
+            <section class="cart">
+                <button class="close">×</button>
+                <h2>Your Basket</h2>
+                <h3>bkabkabla</h2>
+            </section>
+    `;
+}
+
+
+

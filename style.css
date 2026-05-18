@@ -211,50 +211,39 @@ main {
     }
 }
 
-.mobileCartDialog {
-
-      position: fixed;
+.mobileCart {
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  
-    /* margin: 0;
-    width: 320px;
+
+    /* background-color: red; */
+}
+
+.mobileCart::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Only styling for mobile and desktop carts */
+.cart {
+    height: 580px;
+    margin: 0;
+    width: 250px;
     border: 0;
     border-radius: 20px;
     padding: 20px;
     background: #2f2f2f;
-    color: #fff; */
-}
+    color: #fff;
+    /* display: flex;
+    flex-direction: column; */
+   
 
-
-.mobileCartDialog::backdrop {
-    background: rgba(0, 0, 0, 0.5);
-}
-
-/* Styling for mobile and desktop carts */
-.cart {
-    height: 580px;
-        margin: 0;
-        width: 250px;
-        border: 0;
-        border-radius: 20px;
-        padding: 20px;
-        background: #2f2f2f;
-        color: #fff;
-
-       h2 {
+    h2 {
         color: #fdeadc;
         text-align: center;
         margin-bottom: 20px;
     }
 }
-
-
-
-/* .desktopCart {
-    display: none;
-} */
 
 .btnCloseCart {
     position: absolute;
@@ -287,11 +276,12 @@ main {
 
 .item p,
 .summary p {
-    color: #fdeadc;
+    color: #000000;
     margin: 6px 0 0;
 }
 
 .summary p {
+    
     color: #fdeadc;
     display: flex;
     justify-content: space-between;
@@ -386,7 +376,6 @@ main {
     .cart {
         width: 280px;
     }
-
 }
 
 @media screen and (min-width: 375px) {
@@ -402,11 +391,9 @@ main {
         }
     }
 
-
     .cart {
         width: 320px;
     }
-
 }
 
 @media screen and (min-width: 500px) {
@@ -522,7 +509,7 @@ main {
         }
     }
 
-    .desktopCartOverlay {
+    .desktopCartContainer {
         /* background-color: #e76c1f; */
         position: absolute;
         margin-top: 40px;
@@ -537,15 +524,14 @@ main {
 
     /* Sticky Element */
     .desktopCart {
+        /* background-color: rgb(38, 0, 255); */
         display: flex;
         flex-direction: column;
         position: sticky;
         top: 0;
 
-        
         /* height: 600px; */
 
-        
         /* background: #fdeadc;
         border-radius: 20px;
 
@@ -558,8 +544,11 @@ main {
         padding: 20px;
         background: #2f2f2f;
         color: #fff; */
+    }
 
-     
+    .cart {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
     }
 
     .mainFooter {
@@ -586,27 +575,23 @@ main {
     }
 }
 
-@media screen and (max-width: 1440px) {
+/* @media screen and (max-width: 1440px) {
     .desktopCart {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
     }
-}
+} */
 
+/* @media (min-width: 1024px) { */
 
-@media (max-width: 1024px) {
-  
-
-    /* .open-cart {
+/* .open-cart {
         display: block;
     }
 
     dialog .cart {
         margin: auto;
     } */
-}
-
-
+/* } */
 
 /* .close {
     position: absolute;
