@@ -1,9 +1,8 @@
 let foodMenu = JSON.parse(localStorage.getItem("foodMenu")) || menuDB;
 let customerBasket = JSON.parse(localStorage.getItem("customerBasket")) || [];
-// let customerReceipt = JSON.parse(localStorage.getItem("customerReceipt")) || [];
-let subTotal = 0;
+// let customerSubtotal = JSON.parse(localStorage.getItem("customerSubtotal")) || [];
+// let subTotal = 0;
 const menuSection = document.getElementById("menuSectionID");
-
 
 function renderFoodMenu() {
     menuSection.innerHTML = "";
@@ -23,7 +22,10 @@ function renderFoodMenu() {
     }
 
     addEventsToButtons(".btnAddToCart", addToCart);
+
     renderCart();
+    restoreBadges(); // in case of browser refresh
+
 }
 
 function addEventsToButtons(buttonClass, functionToRun) {
@@ -67,7 +69,7 @@ function addToCart(articleID) {
             }
         }
     }
-
+    const badge = document.getElementById(`badgeID-${foundItem.articleID}`);
     // Check if article is already in Cart
     let existingCartItem = null;
 
@@ -81,6 +83,10 @@ function addToCart(articleID) {
     if (existingCartItem) {
         existingCartItem.amount++;
         existingCartItem.totalPrice = existingCartItem.amount * existingCartItem.singlePrice;
+        //  renderCart();
+        // scrollToCartItem(foundItem.articleID);
+        // console.log(foundItem.articleID);
+        badge.textContent = existingCartItem.amount;
     }
 
     // Article not in cart yet, add...
@@ -92,36 +98,56 @@ function addToCart(articleID) {
             amount: 1,
             totalPrice: foundItem.price,
         });
+        badge.textContent = 1;
+        //  renderCart();
+        // scrollCartToBottom();
     }
-    // Update local storage    
+    // Update local storage
     localStorage.setItem("customerBasket", JSON.stringify(customerBasket));
 
-    updateCustomerReceipt();
+
+
+    badge.style.display = "flex";
+
     renderCart();
-    scrollCartToBottom();
-    
+    scrollToCartItem(foundItem.articleID);
+    console.log(foundItem.articleID);
 }
 
+// // TODO: Save sumTotal to local storage
+// function updateCustomerReceipt() {
+//     for (let index = 0; index < customerBasket.length; index++) {
+//         console.log(customerBasket[index].totalPrice);
+//         subTotal += customerBasket[index].totalPrice;
+//     }
+// }
 
-// TODO: Save sumTotal to local storage
-function updateCustomerReceipt() {
-    
-    for (let index = 0; index < customerBasket.length; index++) {
-        console.log(customerBasket[index].totalPrice);
-        subTotal += customerBasket[index].totalPrice;
+// function scrollCartToBottom() {
+//     const cart = document.querySelector(".items");
 
-    }
-}
+//     // TODO: if container is near bottom dont scroll
+//     // const isNearBottom =
+//     // cart.scrollTop + cart.clientHeight >=
+//     // cart.scrollHeight - 50;
 
+//     cart.scrollTop = cart.scrollHeight;
+// }
 
+function scrollToCartItem(itemId) {
+    // TODO: if container is near bottom dont scroll
+    const element = document.getElementById(`itemID-${itemId}`);
+    console.log("itemID-${itemId} => " + `itemID-${itemId}`);
 
+    element.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "nearest",
+    });
 
-
-function scrollCartToBottom() {
-
-    const cart = document.querySelector(".items");
-
-    cart.scrollTop = cart.scrollHeight;
+    element.classList.add("highlight");
+    setTimeout(() => {
+        element.classList.remove("highlight");
+    }, 1000);
 }
 
 const content = document.getElementById("cartContent");
@@ -139,8 +165,8 @@ function renderCart() {
         for (let index = 0; index < customerBasket.length; index++) {
             cartContentHTML += getShoppingCartTemplateMain(index);
         }
-
-        cartContentHTML += getShoppingCartTemplateFooter();
+const totals = calculateTotals();
+        cartContentHTML += getShoppingCartTemplateFooter(totals);
     }
 
     content.innerHTML = cartContentHTML;
@@ -160,3 +186,37 @@ window.addEventListener("resize", renderCart);
 // function updateLocalStorage() {
 //     localStorage.setItem("foodMenu", JSON.stringify(foodMenu));
 // }
+
+function restoreBadges() {
+    for (let cartItem of customerBasket) {
+        const badge = document.getElementById(`badgeID-${cartItem.articleID}`);
+
+        if (badge) {
+            // Show badge
+            badge.style.display = "flex";
+
+            // Restore amount
+            badge.textContent = cartItem.amount;
+        }
+    }
+}
+
+
+
+function calculateTotals() {
+
+    const subtotal = customerBasket.reduce(
+        (sum, item) => sum + (item.amount * item.singlePrice),
+        0
+    );
+
+    const delivery = subtotal > 0 ? 4.99 : 0;
+
+    const total = subtotal + delivery;
+
+    return {
+        subtotal,
+        delivery,
+        total
+    };
+}

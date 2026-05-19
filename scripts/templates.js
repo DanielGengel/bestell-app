@@ -25,6 +25,7 @@ function getArticleTemplate(categoryIndex, articleIndex) {
                     <h4>${foodMenu[categoryIndex].items[articleIndex].price.toFixed(2)}€</h4>
                     <button class="btnAddToCart" data-index="${foodMenu[categoryIndex].items[articleIndex].articleID}"><p>Add to cart</p></button>
                 </div>
+                <div class="badge" id="badgeID-${foodMenu[categoryIndex].items[articleIndex].articleID}"></div>
             </article>
         </div>
     `;
@@ -42,26 +43,28 @@ return `
 // function getShoppingCartTemplate(categoryIndex, articleIndex) {
 function getShoppingCartTemplateMain(index) {
     return `   
-            <article class="item">
+            <article class="item" id="itemID-${customerBasket[index].articleID}">
                 <div>
                     <strong>${customerBasket[index].amount} ${customerBasket[index].name} </strong>
-                    <p>- ${customerBasket[index].amount} +</p>
+                    <p><button class="btnRemoveOneArticle" data-index="${customerBasket[index].articleID}"><p>-</p></button>
+                    ${customerBasket[index].amount}
+                    <button class="btnAddOneArticle" data-index="${customerBasket[index].articleID}"><p>+</p></button></p>
                 </div>
                 <strong>${customerBasket[index].totalPrice.toFixed(2)}€</strong>
             </article>   
     `;
 }
 
-function getShoppingCartTemplateFooter() {
+function getShoppingCartTemplateFooter(totals) {
     return `
             </section>
             <section class="summary">
-                <p><span>Subtotal</span><span>${subTotal}</span></p>
-                <p><span>Delivery</span><span>4,99€</span></p>
+                <p><span>Subtotal</span><span>${totals.subtotal.toFixed(2)}€</span></p>
+                <p><span>Delivery</span><span>${totals.delivery.toFixed(2)}€</span></p>
                 <hr />
-                <p class="total"><span>Total</span><span>${subTotal}+4,99</span></p>
+                <p class="total"><span>Total</span><span>${totals.total.toFixed(2)}€</span></p>
             </section>
-            <button class="btnBuy">Buy now (${subTotal})</button>
+            <button class="btnBuy">Buy now (${totals.total.toFixed(2)}€)</button>
         </section>
     `;
 }
