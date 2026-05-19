@@ -11,7 +11,6 @@ function getCategoryTemplate(categoryIndex) {
     `;
 }
 
-
 function getArticleTemplate(categoryIndex, articleIndex) {
     return `
         <div class="articles">
@@ -32,9 +31,9 @@ function getArticleTemplate(categoryIndex, articleIndex) {
 }
 
 function getShoppingCartTemplateHeader() {
-return `
+    return `
         <section class="cart" id="cartID">
-            <button class="close">×</button>
+            <button class="btnCloseCart">×</button>
             <h2>Your Basket</h2>
             <section class="items" id="itemsID">
     `;
@@ -44,13 +43,18 @@ return `
 function getShoppingCartTemplateMain(index) {
     return `   
             <article class="item" id="itemID-${customerBasket[index].articleID}">
-                <div>
-                    <strong>${customerBasket[index].amount} ${customerBasket[index].name} </strong>
-                    <p><button class="btnRemoveOneArticle" data-index="${customerBasket[index].articleID}"><p>-</p></button>
-                    ${customerBasket[index].amount}
-                    <button class="btnAddOneArticle" data-index="${customerBasket[index].articleID}"><p>+</p></button></p>
+                <div class="itemHeader">
+                    <p>${customerBasket[index].amount}x ${customerBasket[index].name} </p>
+                    <button class="btnRemoveAllArticles" data-index="${customerBasket[index].articleID}">🗑️</button>
                 </div>
-                <strong>${customerBasket[index].totalPrice.toFixed(2)}€</strong>
+                <div class="itemFooter">
+                    <div class="removeOrAddArticle">
+                        <button class="btnRemoveOneArticle" data-index="${customerBasket[index].articleID}">➖</button>
+                        ${customerBasket[index].amount}
+                        <button class="btnAddOneArticle" data-index="${customerBasket[index].articleID}">➕</button>
+                    </div>
+                    <p><strong>${customerBasket[index].totalPrice.toFixed(2)}€</strong></p>
+                </div>
             </article>   
     `;
 }
@@ -69,8 +73,6 @@ function getShoppingCartTemplateFooter(totals) {
     `;
 }
 
-
-
 function getShoppingCartDefaultTemplate() {
     return `
             <section class="cart">
@@ -80,6 +82,3 @@ function getShoppingCartDefaultTemplate() {
             </section>
     `;
 }
-
-
-
