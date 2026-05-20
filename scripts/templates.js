@@ -85,7 +85,7 @@ function getShoppingCartDefaultTemplate() {
 
 function getOrderConfirmationTemplate() {
     return `
-        <button class="closeOrderBtn" onclick="orderConfirmation.close()">✕</button>
+        <button id="btnCloseOrderConfirmationID" class="btnCloseOrderConfirmation">✕</button>
         <img class="orderConfirmationIcon" src="./assets/icons/delivery-truck-icon.png" alt="Order Icon">
         <h2 class="orderConfirmationTitle">Order confirmed!</h2>
         <p class="orderConfirmationText">Your food is on the way!</p>

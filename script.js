@@ -122,6 +122,12 @@ function renderCart() {
             showOrderConfirmation();
         }
     });
+
+    document.addEventListener("click", (e) => {
+        if (e.target && e.target.id === "btnCloseOrderConfirmationID") {
+            closeOrderConfirmation();
+        }
+    });
 }
 
 // function restoreBadges() {
@@ -428,4 +434,10 @@ function openMobileCart() {
 
 function closeMobileCart() {
     mobileCart.close();
+}
+
+
+function closeOrderConfirmation() {
+    orderConfirmation.close();
+    document.body.style.overflow = "";
 }
