@@ -24,7 +24,7 @@ function getArticleTemplate(categoryIndex, articleIndex) {
                     <h4>${foodMenu[categoryIndex].items[articleIndex].price.toFixed(2)}€</h4>
                     <button class="btnAddToCart" data-index="${foodMenu[categoryIndex].items[articleIndex].articleID}"><p>Add to cart</p></button>
                 </div>
-                <div class="badge" id="badgeID-${foodMenu[categoryIndex].items[articleIndex].articleID}"></div>
+                <div class="articleBadge badgeDesign" id="articleBadgeID-${foodMenu[categoryIndex].items[articleIndex].articleID}"></div>
             </article>
         </div>
     `;
@@ -33,7 +33,7 @@ function getArticleTemplate(categoryIndex, articleIndex) {
 function getShoppingCartTemplateHeader() {
     return `
         <section class="cart" id="cartID">
-            <button class="btnCloseCart">×</button>
+            <button id="btnCloseMobileCartID" class="btnCloseMobileCart">X</button>
             <h2>Your Basket</h2>
             <section class="items" id="itemsID">
     `;
@@ -64,7 +64,7 @@ function getShoppingCartTemplateFooter(totals) {
             </section>
             <section class="summary">
                 <p><span>Subtotal</span><span>${totals.subtotal.toFixed(2)}€</span></p>
-                <p><span>Delivery</span><span>${totals.delivery.toFixed(2)}€</span></p>
+                <p><span>Delivery (Free from 50€)</span><span>${totals.delivery.toFixed(2)}€</span></p>
                 <hr />
                 <p class="total"><span>Total</span><span>${totals.total.toFixed(2)}€</span></p>
             </section>
@@ -75,10 +75,10 @@ function getShoppingCartTemplateFooter(totals) {
 
 function getShoppingCartDefaultTemplate() {
     return `
-            <section class="cart">
-                <button class="close">×</button>
-                <h2>Your Basket</h2>
-                <h3>bkabkabla</h2>
+                <div class="emptyBasketMessage">
+                    <h4>Nothing here yet. Go ahead and choose something delicious!</h4>
+                    <img src="./assets/icons/shopping-cart-icon.png" alt="Menu Icon"/>
+                </div>
             </section>
     `;
 }

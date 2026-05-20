@@ -223,11 +223,13 @@ main {
     cursor: pointer;
 }
 
-.badge {
+.articleBadge {
     position: absolute;
     top: 50%;
     right: -1%;
+}
 
+.badgeDesign {
     background: #f57c1f;
     /* font-family: Arial;
       line-height: 1.5; */
@@ -268,7 +270,7 @@ main {
     background: #2f2f2f;
     color: #fff;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     justify-content: space-between;
 
     h2 {
@@ -278,13 +280,23 @@ main {
     }
 }
 
-.btnCloseCart {
-    position: absolute;
+.cartHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+
+.btnCloseMobileCart {
+    /* position: absolute; */
+    /* text-align: right;
     top: 10px;
-    right: 15px;
-    border: 0;
+    right: 15px; */
+    margin-left: auto;
     background: none;
     color: #fff;
+    font-family: Arial;
     font-size: 24px;
     cursor: pointer;
 }
@@ -309,7 +321,7 @@ main {
     flex-direction: column;
     justify-content: space-between;
     gap: 10px;
-   
+
     /* align-items: end; */
 }
 
@@ -317,25 +329,22 @@ main {
     width: 100%;
 
     display: flex;
-     align-items: flex-start;
+    align-items: flex-start;
     justify-content: space-between;
 }
 .itemFooter {
     width: 100%;
-   
+
     display: flex;
-     align-items: center;
+    align-items: center;
     justify-content: space-between;
 }
 
-
-
 .removeOrAddArticle {
     font-family: Arial;
-  /* font-weight: bold; */
- font-size: 20px;   
+    /* font-weight: bold; */
+    font-size: 20px;
 }
-
 
 .btnRemoveOneArticle,
 .btnAddOneArticle,
@@ -405,6 +414,23 @@ main {
     margin-top: 30px;
 }
 
+.emptyBasketMessage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+
+    h4 {
+        text-align: center;
+        color: #fff;
+    }
+    img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
 .mainFooter {
     background-color: #e76c1f;
     height: 200px;
@@ -463,6 +489,24 @@ main {
                 width: 40px;
                 height: 40px;
             }
+
+            .mobileCartBadge {
+                position: absolute;
+                top: -25%;
+                left: 60%;
+                display: flex;
+            }
+            .badgeDesign {
+                height: 30px;
+                width: 25px;
+            }
+
+            
+            
+            
+            
+            
+            
         }
     }
 }
@@ -532,7 +576,6 @@ main {
             }
         }
     }
-  
 }
 
 @media screen and (min-width: 1024px) {
@@ -648,10 +691,9 @@ main {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
     }
-.btnCloseCart {
-    display: none;
-}
-  
+    .btnCloseMobileCart {
+        display: none;
+    }
 
     .mainFooter {
         height: 80px;
