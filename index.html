@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="./css/fonts.css" />
         <link rel="stylesheet" href="style.css" />
-        <script src="./scripts/menuDB.js"></script>
-        <script src="./scripts/templates.js"></script>
+        <script src="./scripts/menuDB.js" defer></script>
+        <script src="./scripts/templates.js" defer></script>
         <script src="script.js" defer></script>
         <title>Bestell-App</title>
     </head>
@@ -40,6 +40,9 @@
             </div>
 
             <section id="cartContent"></section>
+
+            <dialog id="orderConfirmationID" class="orderConfirmation"></dialog>
+
         </main>
         <footer class="mainFooter">
             <div class="mainFooterContent">
@@ -67,9 +70,14 @@
                         </li>
                         <li>
                             <button id="btnOpenMobileCartID" class="btnOpenMobileCart">
-                            <img id="mobileCartIconID" class="mobileCartIcon" src="./assets/icons/mobile-cart-icon-white.png" alt="Shopping cart Icon"/>
-                            <div id="mobileCartBadgeID" class="mobileCartBadge badgeDesign"></div>
-                        </button>
+                                <img
+                                    id="mobileCartIconID"
+                                    class="mobileCartIcon"
+                                    src="./assets/icons/mobile-cart-icon-white.png"
+                                    alt="Shopping cart Icon"
+                                />
+                                <div id="mobileCartBadgeID" class="mobileCartBadge badgeDesign"></div>
+                            </button>
                         </li>
                     </ul>
                 </nav>

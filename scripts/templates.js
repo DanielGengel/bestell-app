@@ -68,7 +68,7 @@ function getShoppingCartTemplateFooter(totals) {
                 <hr />
                 <p class="total"><span>Total</span><span>${totals.total.toFixed(2)}€</span></p>
             </section>
-            <button class="btnBuy">Buy now (${totals.total.toFixed(2)}€)</button>
+            <button id="btnBuyID" class="btnBuy">Buy now (${totals.total.toFixed(2)}€)</button>
         </section>
     `;
 }
@@ -80,5 +80,14 @@ function getShoppingCartDefaultTemplate() {
                     <img src="./assets/icons/shopping-cart-icon.png" alt="Menu Icon"/>
                 </div>
             </section>
+    `;
+}
+
+function getOrderConfirmationTemplate() {
+    return `
+        <button class="closeOrderBtn" onclick="orderConfirmation.close()">✕</button>
+        <img class="orderConfirmationIcon" src="./assets/icons/delivery-truck-icon.png" alt="Order Icon">
+        <h2 class="orderConfirmationTitle">Order confirmed!</h2>
+        <p class="orderConfirmationText">Your food is on the way!</p>
     `;
 }

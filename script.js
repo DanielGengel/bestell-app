@@ -79,8 +79,6 @@ function scrollToCartItem(itemId) {
     }, 1000);
 }
 
-
-
 function renderCart() {
     let cartContentHTML = getShoppingCartTemplateHeader();
 
@@ -111,9 +109,19 @@ function renderCart() {
     addButtonEvents(".btnAddOneArticle", (id) => changeArticleAmount(id, 1));
     addButtonEvents(".btnRemoveOneArticle", (id) => changeArticleAmount(id, -1));
     addButtonEvents(".btnRemoveAllArticles", (id) => deleteArticle(id));
-    
+
     const btnCloseMobileCart = document.getElementById("btnCloseMobileCartID");
     btnCloseMobileCart.addEventListener("click", closeMobileCart);
+
+    // const btnBuy = document.getElementById("btnBuyID");
+    // btnBuy.addEventListener("click", showOrderConfirmation);
+
+    // Check event delegation for all buttons
+    document.addEventListener("click", (e) => {
+        if (e.target && e.target.id === "btnBuyID") {
+            showOrderConfirmation();
+        }
+    });
 }
 
 // function restoreBadges() {
@@ -330,8 +338,6 @@ function restoreBadges() {
 // Update locale storage
 function saveBasket() {
     localStorage.setItem("customerBasket", JSON.stringify(customerBasket));
-
-    
 }
 
 // Add or remove one item from specific article (articleID)
@@ -361,18 +367,60 @@ function changeArticleAmount(articleID, value) {
     updateMobileCartBadge();
 }
 
+const orderConfirmation = document.getElementById("orderConfirmationID");
+
+function showOrderConfirmation() {
+    closeMobileCart();
+
+    console.log("show order confiramtion");
+
+    orderConfirmation.innerHTML = getOrderConfirmationTemplate();
+    document.body.style.overflow = "hidden";
+    orderConfirmation.showModal();
 
 
+    // Remove articles and therfore articleBadges
+    for (let i = 0; i < customerBasket.length; i++) {
+        deleteArticle(customerBasket[i].articleID)
+    }
 
+    // delete Array
+    // customerBasket.length = 0;
+    saveBasket();
+    renderCart();
+    updateMobileCartBadge();
 
+    // setTimeout(() => {
+    //     orderConfirmation.close();
+    // }, 3000);
+}
 
+// const orderConfirmation = document.getElementById("orderConfirmationID");
 
+// function showOrderConfirmation(event){
+//     event?.preventDefault();
+
+//     orderConfirmation.innerHTML = getOrderConfirmationTemplate();
+
+//     document.body.style.overflow = "hidden";
+
+//     orderConfirmation.showModal();
+
+//     // setTimeout(() => {
+//     //     orderConfirmation.close();
+//     //     document.body.style.overflow = "";
+//     // }, 3000);
+// }
+
+// orderConfirmation.addEventListener("close", () => {
+//     document.body.style.overflow = "";
+// });
 
 // Switch between desktop and mobile cart view if window is resized
 window.addEventListener("resize", renderCart);
+
 const btnOpenMobileCart = document.getElementById("btnOpenMobileCartID");
 btnOpenMobileCart.addEventListener("click", openMobileCart);
-
 
 function openMobileCart() {
     mobileCart.showModal();
