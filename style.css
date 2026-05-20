@@ -352,16 +352,21 @@ main {
     height: 20px;
     width: 20px;
     text-align: center;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
     font-family: Arial;
     cursor: pointer;
 }
 
 .btnRemoveOneArticle:hover,
-.btnAddOneArticle:hover,
-.btnRemoveAllArticles:hover {
+.btnAddOneArticle:hover
+ {
     background-color: #e76c1f;
+    transform: scale(1.2);
+}
+
+.btnRemoveAllArticles:hover {
+    transform: scale(1.5);
 }
 
 .highlight {
