@@ -429,10 +429,12 @@ const btnOpenMobileCart = document.getElementById("btnOpenMobileCartID");
 btnOpenMobileCart.addEventListener("click", openMobileCart);
 
 function openMobileCart() {
+    document.body.style.overflow = "hidden";
     mobileCart.showModal();
 }
 
 function closeMobileCart() {
+    document.body.style.overflow = "";
     mobileCart.close();
 }
 
