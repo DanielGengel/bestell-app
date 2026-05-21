@@ -1,6 +1,7 @@
+// #region CategoryTemplate
 function getCategoryTemplate(categoryIndex) {
     return `
-        <div class="articleCategory">
+        <div id="articleCategoryID" class="articleCategory">
             <header class="articleCategoryHeader">
                 <div class="articleCategoryHeaderContent">
                     <img src="${foodMenu[categoryIndex].categoryIcon}" alt="Category Icon for ${foodMenu[categoryIndex].category}" />
@@ -10,7 +11,9 @@ function getCategoryTemplate(categoryIndex) {
         </div>
     `;
 }
+// #endregion
 
+// #region ArticleTemplate
 function getArticleTemplate(categoryIndex, articleIndex) {
     return `
         <div class="articles">
@@ -29,7 +32,9 @@ function getArticleTemplate(categoryIndex, articleIndex) {
         </div>
     `;
 }
+// #endregion
 
+// #region CartTemplateHeader
 function getShoppingCartTemplateHeader() {
     return `
         <section class="cart" id="cartID">
@@ -38,41 +43,45 @@ function getShoppingCartTemplateHeader() {
             <section class="items" id="itemsID">
     `;
 }
+// #endregion
 
-// function getShoppingCartTemplate(categoryIndex, articleIndex) {
-function getShoppingCartTemplateMain(index) {
+// #region CartTemplate Item
+function getShoppingCartTemplateByItem(cartItem) {
     return `   
-            <article class="item" id="itemID-${customerBasket[index].articleID}">
-                <div class="itemHeader">
-                    <p>${customerBasket[index].amount}x ${customerBasket[index].name} </p>
-                    <button class="btnRemoveAllArticles" data-index="${customerBasket[index].articleID}">🗑️</button>
-                </div>
+        <article class="item" id="itemID-${cartItem.articleID}">
+            <div class="itemHeader">
+                <p>${cartItem.amount}x ${cartItem.name}</p>
+                <button class="btnRemoveAllArticles" data-index="${cartItem.articleID}">🗑️</button></div>
                 <div class="itemFooter">
                     <div class="removeOrAddArticle">
-                        <button class="btnRemoveOneArticle" data-index="${customerBasket[index].articleID}">➖</button>
-                        ${customerBasket[index].amount}
-                        <button class="btnAddOneArticle" data-index="${customerBasket[index].articleID}">➕</button>
+                        <button class="btnRemoveOneArticle" data-index="${cartItem.articleID}">➖</button>
+                        ${cartItem.amount}
+                        <button class="btnAddOneArticle" data-index="${cartItem.articleID}">➕</button>
                     </div>
-                    <p><strong>${customerBasket[index].totalPrice.toFixed(2)}€</strong></p>
-                </div>
-            </article>   
+                <p><strong>${cartItem.totalPrice.toFixed(2)}€</strong></p>
+            </div>
+        </article>
     `;
 }
+// #endregion
 
+// #region CartTemplate Footer
 function getShoppingCartTemplateFooter(totals) {
     return `
             </section>
-            <section class="summary">
-                <p><span>Subtotal</span><span>${totals.subtotal.toFixed(2)}€</span></p>
-                <p><span>Delivery (Free from 50€)</span><span>${totals.delivery.toFixed(2)}€</span></p>
+            <section id="summaryID" class="summary">
+                <p><span>Subtotal</span><span id="subtotalValue">${totals.subtotal.toFixed(2)}€</span></p>
+                <p><span>Delivery (Free from 50€)</span><span id="deliveryValue">${totals.delivery.toFixed(2)}€</span></p>
                 <hr />
-                <p class="total"><span>Total</span><span>${totals.total.toFixed(2)}€</span></p>
+                <p class="total"><span>Total</span><span id="totalValue">${totals.total.toFixed(2)}€</span></p>
             </section>
             <button id="btnBuyID" class="btnBuy">Buy now (${totals.total.toFixed(2)}€)</button>
         </section>
     `;
 }
+// #endregion
 
+// #region Default Template
 function getShoppingCartDefaultTemplate() {
     return `
                 <div class="emptyBasketMessage">
@@ -82,7 +91,9 @@ function getShoppingCartDefaultTemplate() {
             </section>
     `;
 }
+// #endregion
 
+// #region Confirmation Template
 function getOrderConfirmationTemplate() {
     return `
         <button id="btnCloseOrderConfirmationID" class="btnCloseOrderConfirmation">✕</button>
@@ -91,3 +102,4 @@ function getOrderConfirmationTemplate() {
         <p class="orderConfirmationText">Your food is on the way!</p>
     `;
 }
+// #endregion

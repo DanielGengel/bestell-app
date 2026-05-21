@@ -1,7 +1,20 @@
+/* Badge location: FoodMenu */
 .articleBadge {
     position: absolute;
     top: 50%;
     right: -1%;
+}
+
+/* Badge location: Mobile nav bar cart icon */
+.mobileCartBadge {
+    display: none;
+    position: absolute;
+    top: -25%;
+    left: 60%;
+    display: flex;
+    height: 30px;
+    width: 20px;
+    border: 1px solid white;
 }
 
 .badgeDesign {
@@ -18,15 +31,3 @@
     font-weight: bold;
     font-family: Arial;
 }
-
-.mobileCartBadge {
-    display: none;
-    position: absolute;
-    top: -25%;
-    left: 60%;
-    display: flex;
-    height: 30px;
-    width: 20px;
-    border: 1px solid white;
-}
-

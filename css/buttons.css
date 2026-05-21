@@ -1,6 +1,6 @@
-
 .btnAddToCart {
     background-color: #ffffff;
+    border: transparent solid 1px;
     padding: 10px;
     border-radius: 20px;
 }
@@ -11,6 +11,7 @@
     cursor: pointer;
 }
 
+/* Button hidden on desktop cart */
 .btnCloseMobileCart {
     margin-left: auto;
     background: none;
@@ -35,14 +36,9 @@
 }
 
 .btnRemoveOneArticle:hover,
-.btnAddOneArticle:hover
- {
-    background-color: #e76c1f;
-    transform: scale(1.2);
-}
-
-.btnRemoveAllArticles:hover {
-    transform: scale(1.5);
+.btnAddOneArticle:hover,
+.btnRemoveAllArticles:hover  {
+    transform: scale(1.3);
 }
 
 .btnBuy {
@@ -62,13 +58,16 @@
     position: absolute;
     top: 12px;
     right: 16px;
-
     border: none;
     background: transparent;
-
     color: white;
     font-size: 24px;
-
     cursor: pointer;
 }
 
+/* Hide X-button on card in desktop view */
+@media screen and (min-width: 1024px) {
+    .btnCloseMobileCart {
+        display: none;
+    }
+}

@@ -1,10 +1,10 @@
-
+// #region add items to cart 
 function addToCart(articleID) {
     // Find article in menuDB and return object
-    let article = findArticleByID(articleID);
+    let objArticle = findArticleByID(articleID);
 
     // Doesn't exist...
-    if (!article) {
+    if (!objArticle) {
         return;
     }
 
@@ -13,18 +13,18 @@ function addToCart(articleID) {
     if (cartItem) {
         changeArticleAmount(articleID, 1);
     } else {
-        createNewCartItem(article);
+        createNewCartItem(objArticle);
+        saveBasket();
+        renderCart();
     }
-
-    saveBasket();
-    renderCart();
 
     updateArticleBadge(articleID);
     updateMobileCartBadge();
-
     scrollToCartItem(articleID);
 }
+// #endregion
 
+// #region Find article by ID
 function findArticleByID(articleID) {
     for (let i = 0; i < foodMenu.length; i++) {
         let category = foodMenu[i];
@@ -39,8 +39,9 @@ function findArticleByID(articleID) {
     }
     return null;
 }
+// #endregion
 
-// Check if article is already in cart
+// #region Check if item is in cart alreday
 function findCartItem(articleID) {
     for (let i = 0; i < customerBasket.length; i++) {
         let cartItem = customerBasket[i];
@@ -51,7 +52,9 @@ function findCartItem(articleID) {
     }
     return null;
 }
+// #endregion
 
+// #region Create new item
 // If article not in cart already, add to card
 function createNewCartItem(article) {
     customerBasket.push({
@@ -62,9 +65,11 @@ function createNewCartItem(article) {
         totalPrice: article.price,
     });
 }
+// #endregion
 
+// #region Change article amount +/-
 // Add or remove one item from specific article (articleID)
-// Argument value = plus or minus 1
+// Argument value => plus 1 or minus 1
 function changeArticleAmount(articleID, value) {
     let cartItem = findCartItem(articleID);
 
@@ -80,13 +85,15 @@ function changeArticleAmount(articleID, value) {
     }
 
     saveBasket();
-    renderCart();
+    updateCartItem(articleID);
+    updateCartFooter();
 
     updateArticleBadge(articleID);
     updateMobileCartBadge();
 }
+// #endregion
 
-// Delete article from basket
+// #region Delete complete article from basket
 function deleteArticle(articleID) {
     for (let i = 0; i < customerBasket.length; i++) {
         if (customerBasket[i].articleID === articleID) {
@@ -100,7 +107,21 @@ function deleteArticle(articleID) {
     updateArticleBadge(articleID);
     updateMobileCartBadge();
 }
+// #endregion
 
+// #region "delete order"
+// When order submitted clear cart
+function clearCart() {
+    customerBasket = [];
+
+    saveBasket();
+    renderCart();
+    resetAllArticleBadges();
+    updateMobileCartBadge();
+}
+// #endregion
+
+// #region Calculate order price
 function calculateTotals() {
     let subtotal = 0;
     let delivery = 0;
@@ -111,16 +132,12 @@ function calculateTotals() {
         amountOfArticles = amountOfArticles + customerBasket[i].amount;
     }
 
-    console.log("amountOfArticles = " + amountOfArticles);
-    // changeMobileCartIcon(amountOfArticles);
-
-    // Free delivery for orders aboce 50€
+    // Free delivery for orders above 50€
     if (subtotal < 50) {
         delivery = 4.99;
     }
-
+    
     let total = subtotal + delivery;
-
     return {
         subtotal: subtotal,
         delivery: delivery,
@@ -128,3 +145,4 @@ function calculateTotals() {
         amountOfArticles: amountOfArticles,
     };
 }
+// #endregion
