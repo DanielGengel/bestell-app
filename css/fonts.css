@@ -80,8 +80,6 @@ h1 span {
     color: #363534;
 }
 
-
-
 h2 {
     font-size: clamp(20px, 3vw, 48px);
     font-family: "Palanquin";

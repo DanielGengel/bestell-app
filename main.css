@@ -1,0 +1,37 @@
+@import "./css/reset.css";
+@import "./css/fonts.css";
+@import "./css/header.css";
+@import "./css/footer.css";
+@import "./css/foodMenu.css";
+@import "./css/cart.css";
+@import "./css/orderConfirmation.css";
+@import "./css/buttons.css";
+@import "./css/badges.css";
+
+body {
+    color: rgb(136, 3, 3);
+    min-height: 100dvh;
+}
+
+main {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content {
+    margin-top: 650px;
+}
+
+@media screen and (min-width: 375px) {
+    .content {
+        margin-top: 720px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .content {
+        margin-top: 700px;
+    }
+}
+

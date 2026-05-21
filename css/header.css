@@ -1,0 +1,114 @@
+.mainHeader {
+    width: 100%;
+    background-color: #e76c1f;
+    height: 80px;
+
+    .mainHeaderMenu {
+        position: fixed;
+        z-index: 3;
+        background-color: #e76c1f;
+        max-width: 1440px;
+        width: 100%;
+        height: 80px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 25px;
+        padding-right: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .appIcon {
+            width: 90px;
+            height: 38px;
+        }
+
+        .burgerMenuIcon {
+            display: none;
+            width: 38px;
+            height: 38px;
+        }
+    }
+    .mainHeaderImage {
+        padding: 20px;
+        .headerImage {
+            margin-top: 90px;
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            height: auto;
+            aspect-ratio: 1 / 1;
+            border-radius: 20px;
+        }
+
+        .headerIcon {
+            position: absolute;
+            top: 95%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+        }
+    }
+    .mainHeaderHeadline {
+        margin-top: 60px;
+        height: 100px;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+
+        h1 {
+            font-family: Arial;
+        }
+        img {
+            height: 30px;
+        }
+    }
+    .mainHeaderSubline {
+        text-align: center;
+        background-color: white;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .mainHeader {
+        background-color: #e76c1f;
+        height: 80px;
+
+        .mainHeaderMenu {
+            position: relative;
+            height: 80px;
+
+            background-color: #e76c1f;
+            max-width: 1440px;
+            width: 100%;
+
+            .burgerMenuIcon {
+                display: flex;
+            }
+        }
+        .mainHeaderImage {
+            max-width: 1440px;
+            padding: 0;
+            margin-left: auto;
+            margin-right: auto;
+            .headerImage {
+                border-radius: 0;
+                margin-top: 0;
+            }
+            .headerIcon {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        .mainHeaderHeadline {
+            flex-direction: row;
+            margin-top: 80px;
+        }
+    }
+}

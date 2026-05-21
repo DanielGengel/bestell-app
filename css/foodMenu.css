@@ -1,0 +1,155 @@
+.articleCategoryHeader {
+    height: 80px;
+    width: 100%;
+    background-color: #f57c1f;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 100px;
+    margin-bottom: 20px;
+
+    .articleCategoryHeaderContent {
+        position: absolute;
+        bottom: 20px;
+
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        img {
+            width: 60px;
+            height: 60px;
+        }
+    }
+}
+
+.articles {
+    margin-right: auto;
+    margin-left: auto;
+
+    .articleCard {
+        background-color: #fdeadc;
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+        height: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+        justify-content: space-between;
+
+        img {
+            width: 100%;
+            height: 90px;
+            margin-top: 10px;
+            border-radius: 20px;
+            object-fit: cover;
+        }
+
+        .articleDescription {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .articlePriceAndButton {
+            width: 100%;
+            margin-top: 10px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+@media screen and (min-width: 375px) {
+    .articles {
+        .articleCard {
+            img {
+                height: 150px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .articles {
+        .articleCard {
+            img {
+                height: 200px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .articles {
+        .articleCard {
+            width: 97%;
+            height: 140px;
+            flex-direction: row;
+            gap: 20px;
+            align-items: flex-start;
+            padding-bottom: 10px;
+
+            img {
+                width: 25%;
+                height: 120px;
+            }
+            .articleDescription {
+                width: 50%;
+                justify-content: center;
+            }
+
+            .articlePriceAndButton {
+                width: 25%;
+                height: 100%;
+                flex-direction: column;
+                align-items: flex-end;
+                justify-content: space-between;
+                padding-bottom: 10px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .articleCategoryHeader {
+        height: 60px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        .articleCategoryHeaderContent {
+            width: 100%;
+            max-width: 1440px;
+            height: 30px;
+            flex-direction: row;
+            justify-content: flex-start;
+            /* margin-left: 15%; */
+            padding-left: 50px;
+
+            gap: 20px;
+
+            img {
+                width: 90px;
+                height: 90px;
+            }
+        }
+    }
+    .articles {
+        .articleCard {
+            width: 65%;
+
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+    }
+}
