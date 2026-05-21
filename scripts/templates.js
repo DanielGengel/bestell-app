@@ -1,7 +1,7 @@
 // #region CategoryTemplate
 function getCategoryTemplate(categoryIndex) {
     return `
-        <div id="articleCategoryID" class="articleCategory">
+        <div id="articleCategoryID-${categoryIndex}" class="articleCategory">
             <header class="articleCategoryHeader">
                 <div class="articleCategoryHeaderContent">
                     <img src="${foodMenu[categoryIndex].categoryIcon}" alt="Category Icon for ${foodMenu[categoryIndex].category}" />
