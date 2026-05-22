@@ -1,3 +1,7 @@
+.content {
+    margin-top: 650px;
+}
+
 .articleCategoryHeader {
     height: 80px;
     width: 100%;
@@ -72,6 +76,9 @@
 }
 
 @media screen and (min-width: 375px) {
+    .content {
+        margin-top: 720px;
+    }
     .articles {
         .articleCard {
             img {
@@ -123,6 +130,9 @@
 }
 
 @media screen and (min-width: 1024px) {
+     .content {
+        margin-top: 700px;
+    }
     .articleCategoryHeader {
         height: 60px;
         margin-top: 40px;

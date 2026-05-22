@@ -19,19 +19,3 @@ main {
     margin-right: auto;
 }
 
-.content {
-    margin-top: 650px;
-}
-
-@media screen and (min-width: 375px) {
-    .content {
-        margin-top: 720px;
-    }
-}
-
-@media screen and (min-width: 1024px) {
-    .content {
-        margin-top: 700px;
-    }
-}
-

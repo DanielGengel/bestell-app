@@ -2,7 +2,9 @@
 
 // #region init Events
 function initEvents() {
-    window.addEventListener("resize", renderCart);
+    // window.addEventListener("resize", renderCart);
+    const mediaQuery = window.matchMedia("(min-width: 1024px)");
+    mediaQuery.addEventListener("change", moveCartToViewport);
 
     // Static button in mobile navMenu
     const btnOpenMobileCart = document.getElementById("btnOpenMobileCartID");
@@ -96,5 +98,19 @@ function openMobileCart() {
 function closeMobileCart() {
     document.body.style.overflow = "";
     mobileCart.close();
+}
+// #endregion
+
+// #region moveCartToViewport
+function moveCartToViewport() {
+    if (window.innerWidth < 1024) {
+        mobileCart.append(content);
+    } else {
+        desktopCart.append(content);
+
+        if (mobileCart.open) {
+            mobileCart.close();
+        }
+    }
 }
 // #endregion

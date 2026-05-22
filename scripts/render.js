@@ -42,14 +42,6 @@ function renderCart() {
         cartContentHTML += getShoppingCartTemplateFooter(totals);
     }
     content.innerHTML = cartContentHTML;
-
-    if (window.innerWidth <= 1024) {
-        mobileCart.append(content);
-        // mobileCart.showModal();
-    } else {
-        desktopCart.append(content);
-        mobileCart.close();
-    }
 }
 // #endregion
 
