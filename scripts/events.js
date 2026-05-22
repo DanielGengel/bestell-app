@@ -6,6 +6,22 @@ function initEvents() {
     const mediaQuery = window.matchMedia("(min-width: 1024px)");
     mediaQuery.addEventListener("change", moveCartToViewport);
 
+    // Close dialog when clicked outside mobileCart
+    const mobileCartBackdrop = document.getElementById("mobileCartID");
+    mobileCartBackdrop.addEventListener("click", (event) => {
+        if (event.target === mobileCartBackdrop) {
+            closeMobileCart();
+        }
+    });
+
+    // Close dialog when clicked outside orderConfirmation-Dialog
+    const orderConfirmationBackdrop = document.getElementById("orderConfirmationID");
+    orderConfirmationBackdrop.addEventListener("click", (event) => {
+        if (event.target === orderConfirmationBackdrop) {
+            closeOrderConfirmation();
+        }
+    });
+
     // Static button in mobile navMenu
     const btnOpenMobileCart = document.getElementById("btnOpenMobileCartID");
     btnOpenMobileCart.addEventListener("click", openMobileCart);
